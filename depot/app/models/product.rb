@@ -4,15 +4,34 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  validates :title, :description, :image_url, presence: true
-  validates :price, numericality: {greater_than_or_equal_to: 0.01}
+  validates :title, :description, :image_url, :price, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0.01 }
   
-  validates :title, uniqueness: true
-  validates :image_url, allow_blank: true, format: {
-    with:    %r{ \.(gif|jpg|png)\Z }i,
-    message: 'must be a URL for GIF, JPG or PNG image.'
+  validates :title, uniqueness: true, length: {
+    in: 6..20,
+    too_long: "%{count} characters is the maximum allowed",
+    too_short: "%{count} character is the minimum allowed"
   }
-  validates :title, length: {minimum: 10}
+
+  validates :image_url, allow_blank: true, format: {
+    with: /\.[gif|jpg|png|jpeg]/i,
+    message: 'must be a URL for GIF, JPG, PNG or JPEG image.'
+  }
+  
+  # callbacks
+  # before_create do
+  #   self.title = title.capitalize
+  # end
+
+  # # callbacks
+  # before_update do
+  #   self.title = title.capitalize
+  # end
+
+  # # callbacks
+  # after_touch do
+  #   puts 'you touch the product'
+  # end
 
   def self.latest
     Product.order(:updated_at).last

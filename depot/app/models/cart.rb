@@ -1,5 +1,11 @@
 class Cart < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
+  after_destroy :after_destroy_method
+  
+  # callbacks
+  def after_destroy_method
+    puts 'line_items too is destroyed along with cart'
+  end
 
   def add_product(product_id)
     current_item = line_items.find_by(product_id: product_id)
