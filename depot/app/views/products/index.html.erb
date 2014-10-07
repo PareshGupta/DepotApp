@@ -14,7 +14,16 @@
       <td class="list_actions">
         <%= link_to 'Show', product %><br/>
         <%= link_to 'Edit', edit_product_path(product) %><br/>
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+        <% if product.enabled %>
+          <%= link_to 'Disable', disable_product_path(product), method: :patch %>
+        <% else %>
+          <%= link_to 'Enable', enable_product_path(product), method: :patch %>
+        <% end %>
+      </td>
+      <td>
+        <%= select_tag(:rating_id, options_for_select([[0,0], [1,1], [2,2], [3,3], [4,4], [5,5], [6,6]], product.rating_by_user(session[:user_id])), class: 'rating_class', data: { product_id: product.id }) %>
+        <p class="average_rating">Avg-Rating: <%= product.average_rating  %></p>
       </td>
     </tr>
   <% end %>

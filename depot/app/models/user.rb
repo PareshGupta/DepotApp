@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   around_save :around_save_method
 
   has_one :order, autosave: true
+
+  has_many :ratings
+  has_many :rated_products, through: :ratings, source: :product
+
   
   # after_initialize do |user|
   #   puts 'you have initiated the user object'

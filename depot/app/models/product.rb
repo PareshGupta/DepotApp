@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
   has_many :line_items
   has_many :orders, through: :line_items
+  has_many :users, through: :ratings
+  has_many :ratings
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -37,6 +39,14 @@ class Product < ActiveRecord::Base
     Product.order(:updated_at).last
   end
 
+  def rating_by_user(user_id)
+    ratings.where(user_id: user_id).first.try(:score).to_i
+  end
+  
+  def average_rating
+    ratings.average(:score).to_f
+  end
+  
   private
 
     # ensure that there are no line items referencing this product
@@ -48,4 +58,5 @@ class Product < ActiveRecord::Base
         return false
       end
     end
+
 end

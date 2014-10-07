@@ -13,11 +13,16 @@ Depot::Application.routes.draw do
   resources :line_items
   resources :carts
   resources :sessions
+  resources :ratings
   
   get "store/index"
   resources :products do
     get :who_bought, on: :member
+    patch :disable, on: :member
+    patch :enable, on: :member
+    # put :disable, on: :collection
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

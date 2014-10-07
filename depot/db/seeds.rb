@@ -20,7 +20,7 @@ Product.create!(title: 'CoffeeScript',
   image_url:   'cs.jpg',    
   price: 36.00)
 # . . .
-Product.create!(title: 'Programming Ruby 1.9 & 2.0',
+Product.create!(title: 'Programming Ruby',
   description:
     %{<p>
         Ruby is the fastest growing and most exciting dynamic language
@@ -31,7 +31,7 @@ Product.create!(title: 'Programming Ruby 1.9 & 2.0',
   price: 49.95)
 # . . .
 
-Product.create!(title: 'Rails Test Prescriptions',
+Product.create!(title: 'Rails Test',
   description: 
     %{<p>
         <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
