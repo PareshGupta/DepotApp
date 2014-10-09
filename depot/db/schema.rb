@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008173848) do
+ActiveRecord::Schema.define(version: 20141009140827) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20141008173848) do
     t.datetime "updated_at"
     t.integer  "stock"
     t.boolean  "enabled",                             default: true
-    t.string   "category"
+    t.integer  "category_id"
   end
 
   create_table "ratings", force: true do |t|
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20141008173848) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "login"
   end
 
 end

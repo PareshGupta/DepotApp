@@ -27,7 +27,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category %>
+  <%= Category.find(@product.category_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

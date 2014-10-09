@@ -18,8 +18,7 @@ Product.create!(title: 'CoffeeScript',
   while writing clearer, cleaner, and safer code.
       </p>},
   image_url:   'cs.jpg',    
-  price: 36.00,
-  category: 'Book')
+  price: 36.00)
 # . . .
 Product.create!(title: 'Programming Ruby',
   description:
@@ -29,8 +28,7 @@ Product.create!(title: 'Programming Ruby',
         you should add Ruby to your toolbox.
       </p>},
   image_url: 'ruby.jpg',
-  price: 49.95,
-  category: 'Video')
+  price: 49.95)
 # . . .
 
 Product.create!(title: 'Rails Test',
@@ -44,5 +42,4 @@ Product.create!(title: 'Rails Test',
         including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
       </p>},
   image_url: 'rtp.jpg',
-  price: 34.95,
-  category: 'Book')
+  price: 34.95)

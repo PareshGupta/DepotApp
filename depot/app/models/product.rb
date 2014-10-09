@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   has_many :orders, through: :line_items
   has_many :users, through: :ratings
   has_many :ratings
+  belongs_to :category
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -20,20 +21,6 @@ class Product < ActiveRecord::Base
     message: 'must be a URL for GIF, JPG, PNG or JPEG image.'
   }
   
-  # callbacks
-  # before_create do
-  #   self.title = title.capitalize
-  # end
-
-  # # callbacks
-  # before_update do
-  #   self.title = title.capitalize
-  # end
-
-  # # callbacks
-  # after_touch do
-  #   puts 'you touch the product'
-  # end
 
   def self.latest
     Product.order(:updated_at).last

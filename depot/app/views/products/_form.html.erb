@@ -29,8 +29,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :category %><br>
-    <%= f.select(:category, options_for_select([['Book', 'Book'],['Video', 'Video']])) %>
+    <%= f.label :category_id %><br>
+    <%= f.select(:category_id, options_for_select(Category.pluck(:name, :id))) %>
   </div>
   <div class="field">
     <%= f.check_box(:enabled) %>

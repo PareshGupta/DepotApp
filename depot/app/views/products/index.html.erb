@@ -14,7 +14,7 @@
         <dl>
           <dt><%= product.title %></dt>
           <dd><%= truncate(strip_tags(product.description), length: 80) %></dd><br>
-          <dd><%= product.category %></dd>
+          <dd><strong>Category: </strong><%= Category.find(product.category_id).name %></dd>
         </dl>
       </td>
       <td class="list_actions">
