@@ -27,6 +27,11 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
+
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select(:category, options_for_select([['Book', 'Book'],['Video', 'Video']])) %>
+  </div>
   <div class="field">
     <%= f.check_box(:enabled) %>
     <%= f.label('Enable the Product') %>
