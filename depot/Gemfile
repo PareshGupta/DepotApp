@@ -32,6 +32,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'capistrano'
+gem 'capistrano-bundler'
 gem 'unicorn'
 
 # Use unicorn as the app server
