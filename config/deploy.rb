@@ -15,7 +15,7 @@ set :linked_files, %w(config/database.yml config/secrets.yml)
 set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets)
 
 namespace :deploy do
-  after :publishing, :restart
+  # after :publishing, :restart
 
   after :restart, :unicorn_restart do
     on roles(:web), in: :parallel do
