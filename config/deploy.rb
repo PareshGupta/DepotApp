@@ -3,7 +3,7 @@ lock '3.3.5'
 
 set :application, 'depot'
 set :repo_url, 'https://github.com/PareshGupta/DepotApp.git'
-set :branch, 'f-master-slave'
+set :branch, 'f-octopus'
 set :scm, :git
 set :deploy_to, '/var/www/depot/'
 set :sudo, false
