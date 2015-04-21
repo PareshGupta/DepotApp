@@ -1,0 +1,13 @@
+octopus:
+  fully_replicated: true
+    environments:
+      - production
+
+    production:
+      slave1:
+        adapter: mysql2
+        host: 52.11.190.204
+        database: depot_production
+        username: paresh
+        password: vinsol
+        <<: *mysql

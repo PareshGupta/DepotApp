@@ -21,3 +21,5 @@ gem 'capistrano-rails'
 gem 'unicorn'
 
 gem 'quiet_assets'
+
+gem 'ar-octopus'
