@@ -1,9 +1,9 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  username: root
+  username: paresh
   password: vinsol
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /private/tmp/mysql.sock
   
 development:
   <<: *default
@@ -12,6 +12,10 @@ development:
 test:
   <<: *default
   database: depot_test
+
+staging:
+  <<: *default
+  database: depot_staging
 
 production:
   <<: *default
